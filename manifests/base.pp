@@ -5,7 +5,7 @@ class general{
     }
   
     package { 
-      [ "vim", "git-core", "subversion", "mercurial", "python", "python-setuptools", "python-dev", "build-essential", "python-pip", "python-virtualenv", "virtualenvwrapper", "libxml2-dev", "libxslt-dev"]:
+      [ "vim", "git-core", "subversion", "mercurial", "python", "python-setuptools", "python-dev", "build-essential", "python-pip", "python-virtualenv", "virtualenvwrapper", "libxml2-dev", "libxslt-dev", "gettext"]:
       ensure => ["installed"],
       require => Exec['apt-update'],
     }
