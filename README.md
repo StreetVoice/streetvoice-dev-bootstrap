@@ -1,6 +1,6 @@
 ## DESCRIPTION
 
-StreetVoice Development Environment on top of a Vagrant VM.
+StreetVoice Development Environment on top of Vagrant VM.
 
 
 
