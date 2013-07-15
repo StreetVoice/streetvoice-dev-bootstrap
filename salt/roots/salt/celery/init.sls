@@ -3,7 +3,6 @@ celery-server:
     - name: celeryd
     - enable: True
     - require:
-       - git: source-code
        - file: upstart-celeryd
 
 upstart-celeryd:

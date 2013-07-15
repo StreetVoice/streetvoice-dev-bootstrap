@@ -12,6 +12,10 @@ Vagrant.configure("2") do |config|
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
   # config.vm.box_url = "http://domain.com/path/to/above.box"
+  # config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+  config.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-vbox4210-nocm.box"
+
+  config.vm.hostname = "sv-local"
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
@@ -31,6 +35,8 @@ Vagrant.configure("2") do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
+  config.vm.synced_folder ".", "/home/vagrant/streetvoice_hk"
+  config.vm.synced_folder "salt/roots/pillar/", "/srv/pillar/"
   config.vm.synced_folder "salt/roots/salt/", "/srv/salt/"
 
   # Provider-specific configuration so you can fine-tune various
@@ -88,8 +94,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision :salt do |salt|
     salt.minion_config = "salt/minion"
+    salt.verbose = true
     salt.run_highstate = true
-
   end
 
   # Enable provisioning with chef server, specifying the chef server URL,
