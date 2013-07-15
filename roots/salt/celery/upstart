@@ -1,0 +1,10 @@
+description "Celery for StreetVoice"
+start on runlevel [2345]
+stop on runlevel [!2345]
+ 
+script
+chdir /home/ubuntu/.virtualenvs/streetvoice/
+exec bin/python streetvoice/manage.py celeryd -B -c 4 -f /var/log/celery.log
+end script
+
+respawn
