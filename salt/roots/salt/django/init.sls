@@ -76,6 +76,14 @@ project-virtualenv:
     - require:
       - pkg: python-packages
 
+project-virtualenv-postactivate:
+  file.append:
+    - name: {{ pillar['system']['home_path'] }}/.virtualenvs/postactivate
+    - text:
+      - "cd {{ pillar['project']['path'] }}"
+    - require:
+      - virtualenv: project-virtualenv
+
 project-pip-requirements:
   pip.installed:
     - bin_env: {{ pillar['project']['virtualenv_path'] }}
