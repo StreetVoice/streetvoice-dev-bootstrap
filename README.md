@@ -19,3 +19,24 @@ $ vagrant ssh
 # stop
 $ vagrant halt
 ```
+
+
+### Setup Database
+
+``` bash
+# inside VM (Guest OS)
+$ mysqladmin -u root password YOURPASSWORD
+$ mysql -u root -pYOURPASSWORD
+mysql> create database streetvoice default charset utf8;
+mysql> use streetvoice
+mysql> source streetvoice.sql
+```
+
+
+### Run Django
+
+```
+# inside VM (Guest OS)
+$ workon streetvoice
+$ ./manage.py runserver 0.0.0.0:8000
+```
