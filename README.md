@@ -40,3 +40,7 @@ mysql> source streetvoice.sql
 $ workon streetvoice
 $ ./manage.py runserver 0.0.0.0:8000
 ```
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/StreetVoice/streetvoice-dev-bootstrap/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
